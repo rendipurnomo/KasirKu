@@ -5,7 +5,6 @@ import React, { Component } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { numberWithCommas } from "../utils/utils";
 import { API_URL } from '../utils/constants';
-import { useNavigate } from "react-router-dom";
 
 
 export default class TotalBayar extends Component {
@@ -15,9 +14,8 @@ export default class TotalBayar extends Component {
           total_bayar: totalBayar,
           menus: this.props.keranjangs
       }
-      const navigate = useNavigate();
       axios.post(API_URL+"pesanans", pesanan).then((res) => {
-        navigate('/sukses');
+        this.props.history("/sukses")
       })
       
   };
